@@ -1,18 +1,13 @@
-const express = require("express");
-const os = require("os");
-
-const cpu_ct = os.cpus().length;
-console.log(cpu_ct);
-
-
+import express from "express";
 
 
 const app = express();
-
 app.get("/", (req, res) => {
-  res.send("Hello World");
+    res.send("Hello World");
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.get("/pid", (req, res) => {
+    res.send(`Worker ${process.pid} is running`);
 });
+
+export {app};
